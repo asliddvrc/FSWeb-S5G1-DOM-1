@@ -48,7 +48,7 @@ const siteContent = {
 console.log("Proje açıldı!");
 
 /* Kodlar  aşağıya */
-const baslik = document.querySelectorAll("a");
+/* const baslik = document.querySelectorAll(" nav a");
 baslik[0].textContent = siteContent.nav["nav-item-1"];
 baslik[1].textContent = siteContent.nav["nav-item-2"];
 baslik[2].textContent = siteContent.nav["nav-item-3"];
@@ -91,7 +91,7 @@ birinciparagraf[3].textContent = siteContent["ana-içerik"]["ürünler-içeriği
 ozelbaslik[4].textContent = siteContent["ana-içerik"]["vizyon-h4"];
 birinciparagraf[4].textContent = siteContent["ana-içerik"]["vizyon-içeriği"];
 
-document.querySelector(".contact h4").classList.add("contact");
+/* document.querySelector(".contact h4").classList.add("contact");
 document.querySelector(".contact h4").textContent =
   siteContent.iletisim["iletişim-h4"];
 const aslidvrc = document.querySelectorAll(".contact p");
@@ -99,4 +99,35 @@ aslidvrc[0].textContent = siteContent.iletisim.adres;
 aslidvrc[2].textContent = siteContent.iletisim.email;
 aslidvrc[1].textContent = siteContent.iletisim.telefon;
 
+document.querySelector("footer a").setAttribute("class", "bold");
+document.querySelector("footer a").textContent = siteContent.footer.copyright; */
+
+document.querySelectorAll("nav a").forEach((e, i) => {
+  e.textContent = siteContent.nav[`nav-item-${i + 1}`];
+  e.className = "italic";
+});
+
+/* document.querySelector("#logo-img").src = siteContent.images["logo-img"];
+document.querySelector("#cta-img").src = siteContent.images["cta-img"];
+document.querySelector("#middle-img").src = siteContent.images["accent-img"];
+ */
+document
+  .querySelectorAll("#logo-img, #cta-img, #middle-img ")
+  .forEach((e, i) => {
+    e.src = Object.values(siteContent["images"])[i];
+  });
+
+document.querySelector("h1").textContent = siteContent.cta.h1;
+document.querySelector(".cta button").textContent = siteContent.cta.button;
+
+document
+  .querySelectorAll(".main-content h4, .main-content p ")
+  .forEach((e, i) => {
+    e.textContent = Object.values(siteContent["ana-içerik"])[i];
+  });
+document.querySelectorAll(".contact h4, .contact p ").forEach((e, i) => {
+  e.textContent = Object.values(siteContent["iletisim"])[i];
+});
+
 document.querySelector("footer a").textContent = siteContent.footer.copyright;
+document.querySelector("footer a").setAttribute("class", "bold");
